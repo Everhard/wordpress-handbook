@@ -2,6 +2,10 @@
 This is my handbook for WordPress development.
 I use this repo as a place to keep WordPress development best practices.
 
+| Case                                                     | Description                                     |
+|----------------------------------------------------------|-------------------------------------------------|
+| [Plugin header comment](solutions/plugin-header-comment) | How the plugin header comment should look like. |
+
 *Andrew Dorokhov*
 
 - Website: https://dorokhov.dev
