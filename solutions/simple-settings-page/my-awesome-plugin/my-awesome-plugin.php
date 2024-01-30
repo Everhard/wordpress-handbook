@@ -116,8 +116,8 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 * @return void
 		 */
 		public static function uninstall() {
-            delete_option( 'name' );
-			delete_option( 'age' );
+            delete_option( 'map_name' );
+			delete_option( 'map_age' );
 		}
 
 		/**
@@ -153,8 +153,11 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 */
 		public static function initialize_settings() {
 
-			register_setting( 'my-awesome-plugin', 'name' );
-			register_setting( 'my-awesome-plugin', 'age' );
+			/**
+			 * Prefix for "My Awesome Plugin" is "MAP".
+			 */
+			register_setting( 'my-awesome-plugin', 'map_name' );
+			register_setting( 'my-awesome-plugin', 'map_age' );
 
 			add_settings_section(
                 'person-info',
@@ -209,9 +212,9 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 */
 		public static function show_age_field( $args ) {
 
-            $age = get_option( 'age' );
+            $age = get_option( 'map_age' );
 		?>
-            <input id="<?= esc_attr( $args['label_for'] ); ?>" type="number" name="age" value="<?= esc_attr( $age ) ?>" />
+            <input id="<?= esc_attr( $args['label_for'] ); ?>" type="number" name="map_age" value="<?= esc_attr( $age ) ?>" />
 
 			<p class="description">
 				<?php esc_html_e( 'Description of the Age field.', 'my-awesome-plugin' ); ?>
@@ -227,9 +230,9 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 */
 		public static function show_name_field( $args ) {
 
-			$name = get_option( 'name' );
+			$name = get_option( 'map_name' );
 			?>
-            <input id="<?= esc_attr( $args['label_for'] ); ?>" type="text" name="name" value="<?= esc_attr( $name ) ?>" />
+            <input id="<?= esc_attr( $args['label_for'] ); ?>" type="text" name="map_name" value="<?= esc_attr( $name ) ?>" />
 
             <p class="description">
 				<?php esc_html_e( 'Description of the Name field.', 'my-awesome-plugin' ); ?>
