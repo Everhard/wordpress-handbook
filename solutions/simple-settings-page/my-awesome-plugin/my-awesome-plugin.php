@@ -72,6 +72,16 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 			register_activation_hook( __FILE__, [ self::class, 'activate' ] );
 
 			/**
+			 * Deactivate the plugin.
+			 */
+			register_deactivation_hook( __FILE__, [ self::class, 'deactivate' ] );
+
+			/**
+			 * Uninstall the plugin.
+			 */
+			register_uninstall_hook( __FILE__, [ self::class, 'uninstall' ] );
+
+			/**
 			 * Add a menu item to the admin menu.
 			 */
 			add_action( 'admin_menu', [ self::class, 'add_admin_menu_item' ] );
@@ -89,6 +99,25 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 */
 		public static function activate() {
 			// Your code is here.
+		}
+
+		/**
+		 * Deactivate the plugin.
+		 *
+		 * @return void
+		 */
+		public static function deactivate() {
+			// Your code is here.
+		}
+
+		/**
+		 * Uninstall the plugin.
+		 *
+		 * @return void
+		 */
+		public static function uninstall() {
+            delete_option( 'name' );
+			delete_option( 'age' );
 		}
 
 		/**

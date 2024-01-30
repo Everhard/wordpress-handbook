@@ -51,6 +51,16 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 			 * Activate the plugin.
 			 */
 			register_activation_hook( __FILE__, [ self::class, 'activate' ] );
+
+			/**
+			 * Deactivate the plugin.
+			 */
+			register_deactivation_hook( __FILE__, [ self::class, 'deactivate' ] );
+
+			/**
+			 * Uninstall the plugin.
+			 */
+			register_uninstall_hook( __FILE__, [ self::class, 'uninstall' ] );
 		}
 
 		/**
@@ -59,6 +69,24 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 * @return void
 		 */
 		public static function activate() {
+			// Your code is here.
+		}
+
+		/**
+		 * Deactivate the plugin.
+		 *
+		 * @return void
+		 */
+		public static function deactivate() {
+			// Your code is here.
+		}
+
+		/**
+		 * Uninstall the plugin.
+		 *
+		 * @return void
+		 */
+		public static function uninstall() {
 			// Your code is here.
 		}
 	}
