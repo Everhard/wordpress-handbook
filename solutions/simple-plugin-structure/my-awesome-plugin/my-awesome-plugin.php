@@ -48,19 +48,30 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 */
 		public static function init() {
 			/**
-			 * Activate the plugin.
+			 * Backend.
 			 */
-			register_activation_hook( __FILE__, [ self::class, 'activate' ] );
+			if ( is_admin() ) {
+				/**
+				 * Activate the plugin.
+				 */
+				register_activation_hook( __FILE__, [ self::class, 'activate' ] );
 
-			/**
-			 * Deactivate the plugin.
-			 */
-			register_deactivation_hook( __FILE__, [ self::class, 'deactivate' ] );
+				/**
+				 * Deactivate the plugin.
+				 */
+				register_deactivation_hook( __FILE__, [ self::class, 'deactivate' ] );
 
-			/**
-			 * Uninstall the plugin.
-			 */
-			register_uninstall_hook( __FILE__, [ self::class, 'uninstall' ] );
+				/**
+				 * Uninstall the plugin.
+				 */
+				register_uninstall_hook( __FILE__, [ self::class, 'uninstall' ] );
+
+			} else {
+				/**
+				 * Frontend.
+				 */
+				// Your code is here.
+			}
 		}
 
 		/**

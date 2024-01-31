@@ -67,29 +67,40 @@ if ( ! class_exists( 'My_Awesome_Plugin' ) ) {
 		 */
 		public static function init() {
 			/**
-			 * Activate the plugin.
+			 * Backend.
 			 */
-			register_activation_hook( __FILE__, [ self::class, 'activate' ] );
+			if ( is_admin() ) {
+				/**
+				 * Activate the plugin.
+				 */
+				register_activation_hook( __FILE__, [ self::class, 'activate' ] );
 
-			/**
-			 * Deactivate the plugin.
-			 */
-			register_deactivation_hook( __FILE__, [ self::class, 'deactivate' ] );
+				/**
+				 * Deactivate the plugin.
+				 */
+				register_deactivation_hook( __FILE__, [ self::class, 'deactivate' ] );
 
-			/**
-			 * Uninstall the plugin.
-			 */
-			register_uninstall_hook( __FILE__, [ self::class, 'uninstall' ] );
+				/**
+				 * Uninstall the plugin.
+				 */
+				register_uninstall_hook( __FILE__, [ self::class, 'uninstall' ] );
 
-			/**
-			 * Add a menu item to the admin menu.
-			 */
-			add_action( 'admin_menu', [ self::class, 'add_admin_menu_item' ] );
+				/**
+				 * Add a menu item to the admin menu.
+				 */
+				add_action( 'admin_menu', [ self::class, 'add_admin_menu_item' ] );
 
-			/**
-			 * Initialize settings sections and fields.
-			 */
-			add_action( 'admin_init', [ self::class, 'initialize_settings' ] );
+				/**
+				 * Initialize settings sections and fields.
+				 */
+				add_action( 'admin_init', [ self::class, 'initialize_settings' ] );
+
+            } else {
+				/**
+				 * Frontend.
+				 */
+				// Your code is here.
+            }
 		}
 
 		/**
