@@ -9,6 +9,7 @@ I use this repo as a place to keep WordPress development best practices.
 | [Simple plugin structure using WPBP](solutions/simple-wpbp-plugin-structure) | Simple plugin structure using the WordPress Boilerplate.           |
 | [Simple admin settings page](solutions/simple-settings-page)                 | Settings page with two parameters.                                 |
 | [Simple admin settings page using WPBP](solutions/simple-settings-page-wpbp) | Settings page with two parameters using the WordPress Boilerplate. |
+| [Simple plugin with submenus. WPBP](solutions/simple-plugin-with-submenus)   | Settings page with two parameters and submenus.                    |
 
 *Andrew Dorokhov*
 
